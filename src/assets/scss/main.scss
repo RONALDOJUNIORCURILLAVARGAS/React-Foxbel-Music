@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Quicksand';
+  src: url('../fonts/Quicksand.ttf') format("truetype");
+}  
+
 $mobile-width: 768px;
 $tablet-width: 992px;
 $desktop-width: 1200px;
@@ -55,8 +60,15 @@ $desktop-width: 1200px;
     margin: 0;
     /* min-width: 320px; */
     min-height: 100vh;
-   
+    font-family: 'Quicksand';
   }
-  
+
 
 @import "./SideBar.scss";
+@import "./TrackCard.scss";
+
+
+
+
+
+
