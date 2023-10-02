@@ -32,15 +32,15 @@ export const Header = ({ onNewCategory }) => {
             <button onClick={onSubmit}>buscar</button>
         </div>
         <div className='lista-tracks'>
+           {/*  { tracks } */}
             {
                 
                 tracks.map((item,index)=>{
-                    return <div key={index} > 
-
+                    return (<div key={index} > 
                             <audio controls>
                                 <source src={item.preview} type="audio/mpeg"/>
                             </audio>
-                            </div>
+                            </div>)
                     
                 }) 
                 
