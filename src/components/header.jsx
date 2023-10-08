@@ -23,7 +23,7 @@ export const Header = ({ onNewCategory }) => {
     <>
       <div className="">
         <input type="text" value={buscar} onChange={onInputChange}></input>
-        <button onClick={onSubmit}>buscar</button>
+        <button onClick={onSubmit} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">buscar</button>
       </div>
       <div className="lista-tracks">
         <ul>
@@ -32,7 +32,7 @@ export const Header = ({ onNewCategory }) => {
           })}
         </ul>
 
-        <div className="p-1 flex flex-wrap items-center justify-center">
+        <div className="p-1 flex flex-wrap items-center justify-start">
         {songs.map((item, index) => {
           return (
             <div
