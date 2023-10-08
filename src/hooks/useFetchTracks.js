@@ -12,7 +12,7 @@ export const useFetchTracks = ( value) => {
     
     useEffect( () => {
         getSongs();
-    }, []);
+    }, [value]);
 
     return {
         songs,
