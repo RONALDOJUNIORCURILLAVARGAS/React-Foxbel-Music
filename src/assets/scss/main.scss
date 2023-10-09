@@ -1,7 +1,7 @@
 @font-face {
-  font-family: 'Quicksand';
-  src: url('../fonts/Quicksand.ttf') format("truetype");
-}  
+  font-family: "Quicksand";
+  src: url("../fonts/Quicksand.ttf") format("truetype");
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,40 +10,38 @@ $mobile-width: 768px;
 $tablet-width: 992px;
 $desktop-width: 1200px;
 @mixin horizontal {
-    @media (orientation: landscape) {
-      @content;
-    }
+  @media (orientation: landscape) {
+    @content;
+  }
 }
 @mixin desktop {
-    @media (min-width: #{$mobile-width + 1}) {
-      @content;
-    }
+  @media (min-width: #{$mobile-width + 1}) {
+    @content;
+  }
 }
 @mixin tablet {
-    @media (min-width: #{$mobile-width + 1}) and (max-width: #{$desktop-width - 1}) {
-      @content;
-    }
+  @media (min-width: #{$mobile-width + 1}) and (max-width: #{$desktop-width - 1}) {
+    @content;
+  }
 }
 @mixin desktop-small {
-    @media (min-width: 993px) and (max-width: 1200px) {
-      @content;
-    }
+  @media (min-width: 993px) and (max-width: 1200px) {
+    @content;
+  }
 }
 @mixin desktop-large {
-    @media (min-width: 1201px){
-      @content;
-    }
+  @media (min-width: 1201px) {
+    @content;
+  }
 }
 @mixin mobile {
-    @media (max-width: 768px) {
-      @content;
-    }
+  @media (max-width: 768px) {
+    @content;
+  }
 }
 
-
-  
-  :root {
-    /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+:root {
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
   
@@ -56,22 +54,15 @@ $desktop-width: 1200px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%; */
-  }
-  
+}
 
-  body {
-    margin: 0;
-    /* min-width: 320px; */
-    min-height: 100vh;
-    font-family: 'Quicksand';
-  }
-
+body {
+  margin: 0;
+  /* min-width: 320px; */
+  min-height: 100vh;
+  font-family: "Quicksand";
+}
 
 @import "./SideBar.scss";
 @import "./TrackCard.scss";
-
-
-
-
-
-
+@import "./player.scss";
