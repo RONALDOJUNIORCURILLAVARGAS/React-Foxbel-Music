@@ -62,6 +62,9 @@ body {
   min-height: 100vh;
   font-family: "Quicksand";
 }
+*{
+  outline: none;
+}
 
 @import "./SideBar.scss";
 @import "./TrackCard.scss";

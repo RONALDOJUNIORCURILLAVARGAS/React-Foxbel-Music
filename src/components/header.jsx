@@ -19,16 +19,26 @@ export const Header = ({ onNewCategory }) => {
   const onInputChange = ({ target }) => {
     setBuscar(target.value);
   };
+  const ChangePlayer=(elemento) => {
+    console.log('item seleccionado => ', elemento)
+  }
   return (
     <div>
       <div className="">
-        <input type="text" value={buscar} placeholder="Buscar" onChange={onInputChange}></input>
-        <button
-          onClick={onSubmit}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        >
-          buscar
-        </button>
+        {/* <form onSubmit={onSubmit}> */}
+          <input
+            type="text"
+            value={buscar}
+            placeholder="Buscar"
+            onChange={onInputChange}
+          ></input>
+          <button
+            onClick={onSubmit}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
+            buscar
+          </button>
+        {/* </form> */}
       </div>
       <div className="lista-tracks">
         <div className="p-1 flex flex-wrap items-center justify-start">
@@ -36,7 +46,8 @@ export const Header = ({ onNewCategory }) => {
             return (
               <div
                 key={index}
-                className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg"
+                className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg cursor-pointer"
+                onClick={()=>ChangePlayer(item)}
               >
                 <div className="relative flex items-center justify-center">
                   <img
