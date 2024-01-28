@@ -27,8 +27,9 @@ export const Header = ({ onNewSong }) => {
         <form onSubmit={onSubmit}>
           <input
             type="text"
+            className="inpt-search-song"
             value={buscar}
-            placeholder="Buscar"
+            placeholder="¿Qué te apetece buscar?"
             onChange={onInputChange}
           ></input>
         </form>

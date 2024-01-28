@@ -1,0 +1,16 @@
+.inpt-search-song {
+  padding: 15px 10px;
+  padding-left: 20px;
+  font-size: 16px;
+  border-radius: 30px;
+  min-width: 350px;
+  border: 1px solid rgba(122, 136, 120, 0.144);
+  margin: 15px;
+  background-color: whitesmoke;
+  &:focus {
+    border: 1px solid rgba(16, 17, 16, 0.144);
+    box-shadow: 10px 11px 40px 4px rgba(240, 186, 221, 0.82);
+    -webkit-box-shadow: 10px 11px 40px 4px rgba(240, 186, 221, 0.82);
+    -moz-box-shadow: 10px 11px 40px 4px rgba(240, 186, 221, 0.82);
+  }
+}
