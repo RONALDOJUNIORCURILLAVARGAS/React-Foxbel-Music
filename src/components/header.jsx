@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useFetchTracks } from "../hooks/useFetchTracks";
 
 export const Header = ({ onNewSong }) => {
-  const { songs, getSongs } = useFetchTracks();
+  const { songs, getSongs } = useFetchTracks('samboomaster');
   const [buscar, setBuscar] = useState("");
 
   const onSubmit = (event) => {
@@ -20,7 +20,7 @@ export const Header = ({ onNewSong }) => {
   const ChangePlayer = (elemento) => {
     onNewSong(elemento);
   };
-  
+
   return (
     <div>
       <div className="">
