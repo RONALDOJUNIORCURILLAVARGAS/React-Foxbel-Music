@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFetchTracks } from "../hooks/useFetchTracks";
-export const Player = ({ onNewCategory }) => {
+export const Player = ({ songPlayer }) => {
   const { songs, getSongs } = useFetchTracks();
   const [buscar, setBuscar] = useState("");
   console.log("submit entraste", songs);
@@ -13,8 +13,10 @@ export const Player = ({ onNewCategory }) => {
 
   return (
     <div id="reproductor" className="caja-reproductor">
+    
       <audio
-        src="https://cdns-preview-1.dzcdn.net/stream/c-10be257caddfdf292b8576c74e1d3b56-3.mp3"
+        src={songPlayer.preview}
+        autoPlay
         controls
       ></audio>
       <button

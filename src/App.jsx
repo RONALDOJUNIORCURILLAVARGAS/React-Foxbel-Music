@@ -5,13 +5,15 @@ import "./assets/scss/App.scss";
 import { Header, SideBar, Player } from "./components";
 
 function App() {
-  const [count, setCount] = useState(0);
-
+  const [songPlayer, setSongPlayer] = useState({});
+  const onNewSelectSong=(song)=>{
+    setSongPlayer(song)
+  }
   return (
     <>
       <SideBar />
-      <Header />
-      <Player />
+      <Header onNewSong={(value) => onNewSelectSong(value)}/>
+      <Player songPlayer={songPlayer}/>
     </>
   );
 }

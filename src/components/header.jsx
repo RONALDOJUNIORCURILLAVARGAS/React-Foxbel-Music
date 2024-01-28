@@ -1,53 +1,49 @@
 import { useState } from "react";
 import { useFetchTracks } from "../hooks/useFetchTracks";
 
-export const Header = ({ onNewCategory }) => {
+export const Header = ({ onNewSong }) => {
   const { songs, getSongs } = useFetchTracks();
   const [buscar, setBuscar] = useState("");
-  const [tracks, setTracks] = useState([]);
+
   const onSubmit = (event) => {
+    event.preventDefault();
+    if(buscar.trim().length<=1) return;
     console.log("submit entraste", buscar);
-    getSongs(buscar).then((e) => {
-      console.log(" results => ", e);
-      setTracks(e);
-    });
-
-    /*  setTracks(songs)
-        console.log('Hola mundo:',songs) */
+    getSongs(buscar);
   };
-
+  //BUSCANDO LO ESCRITO EN EL INPUT
   const onInputChange = ({ target }) => {
     setBuscar(target.value);
   };
-  const ChangePlayer=(elemento) => {
-    console.log('item seleccionado => ', elemento)
-  }
+
+  //ENVIO DE LA CANCION SELECCIONAD
+  const ChangePlayer = (elemento) => {
+    onNewSong(elemento);
+  };
+  
   return (
     <div>
       <div className="">
-        {/* <form onSubmit={onSubmit}> */}
+        <form onSubmit={onSubmit}>
           <input
             type="text"
             value={buscar}
             placeholder="Buscar"
             onChange={onInputChange}
           ></input>
-          <button
-            onClick={onSubmit}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            buscar
-          </button>
-        {/* </form> */}
+        </form>
+
+        
+        
       </div>
       <div className="lista-tracks">
         <div className="p-1 flex flex-wrap items-center justify-start">
-          {songs.map((item, index) => {
+          {songs.map((item) => {
             return (
               <div
-                key={index}
+                key={item.id}
                 className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg cursor-pointer"
-                onClick={()=>ChangePlayer(item)}
+                onClick={() => ChangePlayer(item)}
               >
                 <div className="relative flex items-center justify-center">
                   <img
@@ -57,10 +53,12 @@ export const Header = ({ onNewCategory }) => {
                   />
                 </div>
                 <div className="relative text-white px-6 pb-6 mt-6">
-                  <span className="block opacity-75 -mb-1">Indoor</span>
+                  <span className="block opacity-75 -mb-1">
+                    {item.artist.name}
+                  </span>
                   <div className="flex justify-between">
                     <span className="block font-semibold text-xl">
-                      Peace Lily
+                      {item.title_short}
                     </span>
                     <span className="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
                       $36.00
