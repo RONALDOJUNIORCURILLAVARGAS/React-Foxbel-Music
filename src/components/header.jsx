@@ -38,12 +38,15 @@ export const Header = ({ onNewSong }) => {
         
       </div>
       <div className="lista-tracks">
-        <div className="p-1 flex flex-wrap items-center justify-start">
-          {songs.map((item) => {
+      <div class="container mx-auto">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0">
+
+   
+    {songs.map((item) => {
             return (
               <div
                 key={item.id}
-                className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg max-w-xs shadow-lg cursor-pointer"
+                className="flex-shrink-0 m-6 relative overflow-hidden bg-orange-500 rounded-lg shadow-lg cursor-pointer"
                 onClick={() => ChangePlayer(item)}
               >
                 <div className="relative flex items-center justify-center">
@@ -53,7 +56,7 @@ export const Header = ({ onNewSong }) => {
                     alt=""
                   />
                 </div>
-                <div className="relative text-white px-6 pb-6 mt-6">
+                <div className="relative text-white px-3 pb-3 pt-3">
                   <span className="block opacity-75 -mb-1">
                     {item.artist.name}
                   </span>
@@ -61,15 +64,16 @@ export const Header = ({ onNewSong }) => {
                     <span className="block font-semibold text-xl">
                       {item.title_short}
                     </span>
-                    <span className="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
-                      $36.00
-                    </span>
+                    
                   </div>
                 </div>
               </div>
             );
           })}
-        </div>
+  </div>
+</div>
+
+       
       </div>
     </div>
   );

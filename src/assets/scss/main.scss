@@ -9,6 +9,8 @@
 $mobile-width: 768px;
 $tablet-width: 992px;
 $desktop-width: 1200px;
+
+$--dark-reds-secondary:#662323;
 @mixin horizontal {
   @media (orientation: landscape) {
     @content;
@@ -64,6 +66,7 @@ body {
 }
 *{
   outline: none;
+  overflow-y: hidden;
 }
 
 @import "./SideBar.scss";

@@ -22,40 +22,9 @@ export const Player = ({ songPlayer }) => {
 
   return (
     <div id="reproductor" className="caja-reproductor">
-      <div className="absolute right-4 top-4">
-        <div id="dark-mode-toggle" className="cursor-pointer">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 stroke-white hidden dark:block"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-            />
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6 stroke-[#0A1122] block dark:hidden"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-            />
-          </svg>
-        </div>
-      </div>
-      <div className="w-screen flex flex-col items-center justify-center">
-        <div className="relative w-player flex flex-col rounded-xl shadow-player-light bg-player-light-background border border-player-light-border dark:shadow-player-dark dark:bg-player-dark-background dark:border-player-dark-border dark:backdrop-blur-xl">
+      
+      <div className="w-full flex flex-col items-center justify-center">
+        <div className="relative w-full flex flex-col rounded-xl shadow-player-light bg-player-light-background border border-player-light-border dark:shadow-player-dark dark:bg-player-dark-background dark:border-player-dark-border dark:backdrop-blur-xl">
           <div className="px-10 pt-10 pb-4 flex items-center z-50">
             <img
               data-amplitude-song-info="cover_art_url"
@@ -67,22 +36,22 @@ export const Player = ({ songPlayer }) => {
               }
             />
 
-            <div class="flex flex-col">
+            <div className="flex flex-col">
               <span
                 data-amplitude-song-info="name"
-                class="font-sans text-lg font-medium leading-7 text-slate-900 dark:text-white"
+                className="font-sans text-lg font-medium leading-7 text-slate-900 dark:text-white"
               >
                 {songPlayer.title}
               </span>
               <span
                 data-amplitude-song-info="artist"
-                class="font-sans text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
+                className="font-sans text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
               >
                 {songPlayer.artist?songPlayer.artist.name:''}
               </span>
               <span
                 data-amplitude-song-info="album"
-                class="font-sans text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
+                className="font-sans text-base font-medium leading-6 text-gray-500 dark:text-gray-400"
               >
                 {songPlayer.album?songPlayer.album.title:''}
               </span>
