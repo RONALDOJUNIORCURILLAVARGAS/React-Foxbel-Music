@@ -1,5 +1,4 @@
 import { useState ,useEffect,useRef} from "react";
-import { useFetchTracks } from "../hooks/useFetchTracks";
 
 export const Player = ({ songPlayer }) => {
   const [statePlay, setStatePLay] = useState(false);
@@ -10,15 +9,9 @@ export const Player = ({ songPlayer }) => {
   const inptRange= document.getElementById("song-percentage-played")
 
   const playbackControl = () => {
-    if (statePlay) {
-      elemento.play();
-      setStatePLay(false);
-      console.log("elemento => ", elemento);
-    } else {
-      elemento.pause();
-      setStatePLay(true);
-      console.log("elemento => ", elemento);
-    }
+   
+    statePlay?elemento.play():elemento.pause();
+    setStatePLay(!statePlay)
   };
   const changeRange =(e)=>{
     const newPercentage=parseFloat(e.target.value);
@@ -29,11 +22,9 @@ export const Player = ({ songPlayer }) => {
 
   }
   const handleTimeUpdate=({target})=>{
-    console.log('e=>',target)
     const {currentTime,duration} = target;
     const newPercentage = (currentTime / duration) * 100;
     setPercentagePlayed(parseFloat(newPercentage));
-    console.log('sf',inptRangeRef)
     inptRangeRef.current.style.backgroundSize=""+newPercentage+"% 100%";
   }
   useEffect(() => {
