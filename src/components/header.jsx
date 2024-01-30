@@ -38,8 +38,8 @@ export const Header = ({ onNewSong }) => {
         
       </div>
       <div className="lista-tracks">
-      <div class="container mx-auto">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0">
+      <div className="container mx-auto">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0">
 
    
     {songs.map((item) => {

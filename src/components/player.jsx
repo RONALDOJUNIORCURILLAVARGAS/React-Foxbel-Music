@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState ,useEffect,useRef} from "react";
 import { useFetchTracks } from "../hooks/useFetchTracks";
 
 export const Player = ({ songPlayer }) => {
-  const { songs, getSongs } = useFetchTracks();
   const [statePlay, setStatePLay] = useState(false);
-  const [buscar, setBuscar] = useState("");
-
-  console.log("submit entraste", songs);
+  const [percentagePlayed, setPercentagePlayed] = useState(0);
+  const audioRef=useRef(null);
+  const inptRangeRef=useRef(null);
   const elemento = document.getElementById("elemento-control-player");
+  const inptRange= document.getElementById("song-percentage-played")
+
   const playbackControl = () => {
     if (statePlay) {
       elemento.play();
@@ -19,7 +20,30 @@ export const Player = ({ songPlayer }) => {
       console.log("elemento => ", elemento);
     }
   };
+  const changeRange =(e)=>{
+    const newPercentage=parseFloat(e.target.value);
+    setPercentagePlayed(newPercentage);
+    inptRange.style.backgroundSize=""+e.target.value+"% 100%";
+    const newTime=(newPercentage/100)*audioRef.current.duration;
+    audioRef.current.currentTime = newTime;
 
+  }
+  const handleTimeUpdate=({target})=>{
+    console.log('e=>',target)
+    const {currentTime,duration} = target;
+    const newPercentage = (currentTime / duration) * 100;
+    setPercentagePlayed(parseFloat(newPercentage));
+    console.log('sf',inptRangeRef)
+    inptRangeRef.current.style.backgroundSize=""+newPercentage+"% 100%";
+  }
+  useEffect(() => {
+    
+    audioRef.current.addEventListener('timeupdate', handleTimeUpdate);
+
+    return () => {
+      audioRef.current.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, []);
   return (
     <div id="reproductor" className="caja-reproductor">
       
@@ -63,6 +87,9 @@ export const Player = ({ songPlayer }) => {
               id="song-percentage-played"
               className="amplitude-song-slider mb-3"
               step=".1"
+              ref={inptRangeRef}
+              value={percentagePlayed}
+              onChange={(e) =>  changeRange(e)}
             />
             <div className="flex w-full justify-between">
               <span className="amplitude-current-time text-xs font-sans tracking-wide font-medium text-sky-500 dark:text-sky-300"></span>
@@ -239,6 +266,7 @@ export const Player = ({ songPlayer }) => {
         </div>
       </div>
       <audio
+        ref={audioRef}
         id="elemento-control-player"
         src={songPlayer.preview}
         autoPlay
